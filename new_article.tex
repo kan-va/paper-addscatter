@@ -77,7 +77,7 @@
 	
 	\submitted{1 февраля 2018 г.}
 	
-	\title{Определение диффузно отражающей  поверхности при 
+	\title{!!!//Определение диффузно отражающей  поверхности при 
 		импульсном облучении}
 	
 		\author[1,2]{А.\,В.~Кан}{	Институт прикладной математики ДВО РАН, 690041, г.~Владивосток, ул.~Радио,~7,}{kan.va@inbox.ru}
@@ -145,7 +145,8 @@ $$
 Дополним систему соотношений $(1), (2), (3)$ следующими условиями 
 \begin{equation}
 \label{add_eq}
-\int \limits_{\Omega} S_{\pm}(\k)  I^{+}(\o, \k, t) d\k = P_{\pm}(t),
+\int \limits_{\Omega_{-}} S_{+}(\k)  I^{+}(\o, \k, t) d\k = P_{+}(t), \quad 
+\int \limits_{\Omega_{+}} S_{-}(\k)  I^{+}(\o, \k, t) d\k = P_{-}(t),
 \end{equation}
 где $S_+(\k) = 0$ при $\k \in \{\k \in \Omega: k_1 >0 \}$ и $S_-(\k) = 0$ при $\k \in \{\k \in \Omega: k_1 < 0 \}$. Не умаляя общности считаем, что точка  $\o=(0,0)$ совпадает с началом декартовой системы координат.
 
@@ -165,7 +166,7 @@ J(\r,\k, t) = \delta (\r) \, \delta (t).
 \begin{equation}
 r_1=-\rho(\varphi)\sin \varphi, \quad r_2=\rho(\varphi)\cos \varphi.
 \end{equation}
-Функция $\rho(\varphi)$ определена  непрерывна  на множестве $(\underline{\varphi},\overline{\varphi})$,  где $0 < \underline{\varphi} < \pi  < \overline{\varphi} <2\pi)$, дифференцируема  при $\varphi \in (\underline{\varphi},\pi)\cup (\pi,\overline{\varphi})$, монотонно убывает на интервале $(\underline{\varphi},\pi)$ и монотонно возрастает на промежутке $(\pi,\overline{\varphi})$. В точках $\varphi=\underline{\varphi}$ и $\varphi=\overline{\varphi}$ функция $\rho(\varphi)$ стремится к бесконечности. Таким образом, кривая $\gamma$ делит  плоскость $\mathbb R^2$ на две неограниченные области: $G$ и $\mathbb R^2\setminus \overline{G}$. 
+\textcolor{red}{Функция $\rho(\varphi)$ определена  непрерывна  на множестве $(\underline{\varphi},\overline{\varphi})$,  где $0 < \underline{\varphi} < \pi  < \overline{\varphi} <2\pi)$, дифференцируема  при $\varphi \in (\underline{\varphi},\pi)\cup (\pi,\overline{\varphi})$, монотонно убывает на интервале $(\underline{\varphi},\pi)$ и монотонно возрастает на промежутке $(\pi,\overline{\varphi})$. В точках $\varphi=\underline{\varphi}$ и $\varphi=\overline{\varphi}$ функция $\rho(\varphi)$ стремится к бесконечности. Таким образом, кривая $\gamma$ делит  плоскость $\mathbb R^2$ на две неограниченные области: $G$ и $\mathbb R^2\setminus \overline{G}$. }
 
 
 
@@ -206,74 +207,89 @@ I(\r, \k, t) = \int \limits ^{d(\r, -\k)}_0  \exp (-\mu \tau)  J  \left(\r-\tau\
 \times J \left( \y - \tau\k', \k', t - \frac{d(\r, -\k)}{c} - \frac{\tau}{c} \right) d\tau d \k' + \\ 
 + \frac{\sigma}{2 \pi} \int \limits_{0}^{d(\r,-\k)} \exp(-\mu \tau) \int \limits_{\Omega} \int \limits_{0}^{d(\r-\tau \k,-\k')} \exp(-\mu t')  J \left( \r - t' \k' - \tau \k, \k', t - \frac{t'}{c} - \frac{\tau}{c} \right) dt' d\k' d\tau.
 \end{multline}
-В (9) сделаем замену переменных $r'=\y - \tau\k'$. Так как $d\tau d \k'= \dfrac{d\r'}{|r'-\y|}$, то из (9) вытекает
+В (9) сделаем замену переменных $\r'=\y - \tau\k'$, $\x=\r - t'\k'$. Так как $d\tau d \k'= \dfrac{d\r'}{|\r'-\y|}$, $dt' d\k' = \dfrac{d\x}{|\r - \x|}$ то из (9) вытекает
 \begin{multline}
 I(\r, \k, t) = \int \limits ^{d(\r, -\k)}_0  \exp (-\mu \tau)  J  \left(\r-\tau\k, \k, t - \frac{\tau}{c} \right) d\tau  + \\
 2 \sigma_d\exp \left(-\mu d(\r, -\k) \right) \int \limits_{G(\y)} \left |\n (\y) \cdot \frac{\y-\r'}{|\y-\r'|} \right| \exp (-\mu |\r'-\y|)  \times \\
-\times J \left( \r', \frac{\y-\r'}{|\y-\r'|}, t - \frac{d(\r, -\k)}{c} - \frac{|\y-\r'|}{c} \right)\frac{d\r'}{|\y-\r'|},
+\times J \left( \r', \frac{\y-\r'}{|\y-\r'|}, t - \frac{d(\r, -\k)}{c} - \frac{|\y-\r'|}{c} \right)\frac{d\r'}{|\y-\r'|} + \\ 
+\frac{\sigma}{2 \pi} \int \limits_{0}^{d(\r,-\k)} \exp(-\mu \tau) \int \limits_{G} \frac{\exp(-\mu |\r -\x|)}{|\r - \x|}  J \left( \x - \tau \k, \frac{\r - \x}{|\r - \x|}, t - \frac{|\r - \x|}{c} - \frac{\tau}{c} \right) d\x d\tau,
 \end{multline}
 где $G(\y)=\{\r\in G : \, \alpha \r + (1-\alpha)\y \in G, \, 0<\alpha<1\}$ часть  области $G$, <<видимой>> из точки $\y$.
 Применение  приближения (9) оправдано не только при $\sigma_d \ll 1$, но и в случае слабо меняющейся донной поверхности. В частности, для плоского дна приближение однократного рассеяния является точным решением начально-краевой задачи \cite{14}.
 
 
 
-
 \section{Решение обратной  задачи}
-Принимая во внимание ограничение  (5) для функции $J$ и <<звездность>> области $G$ относительно начала координат, перепишем соотношение (10) в точке $\r=\o$ 
+Принимая во внимание ограничение  (5) для функции $J$ и <<звездность>> области $G$ относительно начала координат, перепишем соотношение (10) в точке $\r=\o$  
 \begin{multline}
 I^+(\o, \k, t) = 
 2 \exp \left(-\mu d(\o, -\k) \right) \int \limits_{G(\y)} |\n (\y) \cdot \frac{\y-\r'}{|\y-\r'|}| \exp (-\mu |\y-\r'|)  \times \\
-\times \delta \left( \r' \right) \delta \left (t - \frac{d(\o, -\k)}{c} - \frac{|\y-\r'|}{c} \right) \frac{d\r'}{|\y-\r'|} = \\=
-\frac{2}{|\y|} \exp \left(-\mu ( d(\o, -\k)+|\y| \right)  \left |\n (\y) \cdot \frac{\y}{|\y|}\right|   \delta \left (t - \frac{d(\o, -\k)}{c} - \frac{|\y|}{c} \right) = \\ = 
-\frac{2}{d(\o, -\k)} \exp \left(-2 \mu  d(\o, -\k) \right)  \left |\n (-d(\o, -\k)\k) \cdot \k\right|   \delta \left (t - 2\frac{d(\o, -\k)}{c}  \right).
+\times \delta \left( \r' \right) \delta \left (t - \frac{d(\o, -\k)}{c} - \frac{|\y-\r'|}{c} \right) \frac{d\r'}{|\y-\r'|}  + \\ 
+\frac{\sigma}{2 \pi}  \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \int \limits_{G} \frac{\exp(-\mu |\r-\x|)}{|\r-\x|} \delta \left( \x - \tau \k \right) \delta \left (t - \frac{\tau}{c} - \frac{|\r-\x|}{c} \right) d\x d\tau= \\ \vspace{0.5cm} =
+\frac{2}{|\y|} \exp \left(-\mu ( d(\o, -\k)+|\y| \right)  \left |\n (\y) \cdot \frac{\y}{|\y|}\right|   \delta \left (t - \frac{d(\o, -\k)}{c} - \frac{|\y|}{c} \right) + \\
+\frac{\sigma}{2 \pi} \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \frac{\exp(-\mu |\r- \tau \k|)}{|\r-\tau \k|} \delta \left (t - \frac{\tau}{c} - \frac{|\r-\tau \k|}{c} \right) d\tau= \\ \vspace{0.5cm}  = 
+\frac{2}{d(\o, -\k)} \exp \left(-2 \mu  d(\o, -\k) \right)  \left |\n (-d(\o, -\k)\k) \cdot \k\right|   \delta \left (t - 2\frac{d(\o, -\k)}{c}  \right) + \\ +
+\frac{\sigma}{2 \pi} \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \frac{\exp(-\mu |\tau \k|)}{|\tau \k|} \delta \left (t - \frac{\tau}{c} - \frac{|\tau \k|}{c} \right) d\tau.
 \end{multline}
-Подставим (11) в условие (4)
+
+Подставим (11) в условие (4) для случая $S_{+}(\k)$
 \begin{multline}
-P_{\pm}(t)=  \int \limits_{\Omega} S_{\pm}(\k) I^+ (\o, \k, t ) d\k
- =
-  \int \limits_{\Omega} S_{\pm} (\k)
-  \frac{2}{d(\o, -\k)}\exp \left(-2\mu  d(\o, -\k) \right)\times \\ \times   \left |\n (- d(\o, -\k)\k) \cdot \k \right| \times 
-   \delta \left (t - 2\frac{d(\o, -\k)}{c} \right) 
-   d\k.
+P_{+}(t)=  \int \limits_{\Omega_{-}} S_{+}(\k) I^+ (\o, \k, t ) d\k
+ =  \int \limits_{\Omega_{-}} S_{\pm} (\k)
+  \frac{2}{d(\o, -\k)}\exp \left(-2\mu  d(\o, -\k) \right)\times \\ \times   \left |\n (- d(\o, -\k)\k) \cdot \k \right| \times \delta \left (t - 2\frac{d(\o, -\k)}{c} \right) d\k + \\ +
+  \frac{\sigma}{2 \pi} \int \limits_{\Omega_{-}} S_{-} (\k) \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \frac{\exp(-\mu |\tau \k|)}{|\tau \k|} \delta \left (t - \frac{\tau}{c} - \frac{|\tau \k|}{c} \right) d\tau d\k,
 \end{multline}
-Пусть $\k=(k_1,k_2)=(-\sin\varphi, \cos\varphi)$, тогда учитывая  параметризацию  кривой $\gamma$ ($\rho(\varphi)= d(\o, -\k)$) из (12) находим
+где $\Omega_{\pm} = \{\k \in \Omega: \k = \pm 1\}$
+
+Пусть $P_{+} = P$, $S_{+} = S$, $\k=(k_1,k_2)=(-\sin\varphi, \cos\varphi)$, тогда учитывая  параметризацию  кривой $\gamma$ ($\rho(\varphi)= d(\o, -\k)$) из (12) находим
 \begin{multline}
-P_{\pm}(t)=  \int \limits_{\underline{\varphi}}^{\overline{\varphi}} S_{\pm}(\varphi)   I^+ (\o, \k(\varphi), t ) d \varphi
+P(t)=  \int \limits_{\pi}^{\overline{\varphi}} S(\varphi)  I^+ (\o, \k(\varphi), t ) d \varphi
 =
-\int \limits_{\underline{\varphi}}^{\overline{\varphi}} S_{\pm}(\varphi) 
+\int \limits_{\pi}^{\overline{\varphi}} S(\varphi) 
 \frac{2}{\rho(\varphi)}\exp \left(-2\mu \rho(\varphi) \right)\times \\ \times   \left |\n (\varphi) \cdot \k(\varphi) \right| \times 
-\delta \left (t - 2\frac{\rho(\varphi)}{c} \right) d\varphi.
+\delta \left (t - 2\frac{\rho(\varphi)}{c} \right) d\varphi + \\ + 
+ \frac{\sigma}{2 \pi} \int \limits_{\pi}^{\overline{\varphi}} S(\varphi)  \int \limits_{0}^{ \rho(\varphi)}  \frac{\exp(-2 \mu \tau)}{\tau} \delta \left (t - \frac{2\tau}{c} \right) d\tau d\varphi.
 \end{multline}
 Учитывая, что
 $$
 \left |\n (\varphi) \cdot \k(\varphi) \right| =\frac{\rho(\varphi)|\rho'(\varphi)|}{\sqrt{\rho'^2(\varphi)+\rho^2(\varphi)}},
 $$
 из (13) получаем
-\begin{equation}
-P_{\pm}(t)=  
-2\int \limits_{\underline{\varphi}}^{\overline{\varphi}} S_{\pm}(\varphi)
+\begin{multline}
+P(t)=  
+2\int \limits_{\pi}^{\overline{\varphi}} S(\varphi)
 \exp \left(- 2 \mu \rho(\varphi) \right)  \frac{|\rho'(\varphi)|}{\sqrt{\rho'^2(\varphi)+\rho^2(\varphi)}}
 \delta \left (t - 2\frac{\rho(\varphi)}{c} \right) 
-d\varphi.
-\end{equation}
+d\varphi + \\ +
+\frac{\sigma}{\pi} \int \limits_{\pi}^{\overline{\varphi}} S(\varphi) \chi (ct/2)_{[0, \rho(\varphi)]}  \frac{\exp(-\mu ct)}{2t} d\varphi.
+\end{multline}
 Согласно предположениям пункта 2, функции $\rho(\varphi)$ монотонна и дифференцируема на интервалах $(\underline{\varphi},\pi)$ и $(\pi,\overline{\varphi})$, следовательно, на  интервале  $(\underline{\varphi},\pi)$ она имеет обратную функцию $\varphi_{-}$, а на интервале  $(\pi,\overline{\varphi})$ --- обратную функцию $\varphi_{+}$.
-Если диаграмма направленности  $S_{+}(\varphi)=1$ при $\varphi\in (\pi,\overline{\varphi})$ , а $S_{-}(\varphi)=1$ при $\varphi\in (\underline{\varphi},\pi)$, то из (14) находим
+Если диаграмма направленности  $S_{+}(\varphi)=1$ при $\varphi\in (\pi,\dfrac{3\pi}{2})$ , а $S_{-}(\varphi)=1$ при $\varphi\in (\dfrac{\pi}{2},\pi)$, то из (14) находим
 \begin{equation}
 \label{intensive}
-P_{\pm}(t)=  
+P(t)=  
 \frac{c   
-	\exp (-   \mu c t)}{\sqrt{1/\varphi'^2_{\pm}(c t /2) +(c t /2)^2}}.
+	\exp (-   \mu c t)}{\sqrt{1/\varphi'^2_{\pm}(c t /2) +(c t /2)^2}} + \frac{\sigma}{2 \pi}  \frac{\exp(-\mu ct)}{t} \int \limits_{l}^{\infty} \chi (ct/2)_{[0, \varphi^{-1}(\rho)]}  \varphi'(\rho) d\rho.
 \end{equation}
-Возвращаясь к обозначению $\rho=c t/2$\, ($ t =2 \rho/c $), из (15) получаем
+ следовательно
 \begin{equation}
-\frac{P^2_{\pm}(2\rho/c)}{c^2 	\exp (-  4 \mu \rho) -  \rho^2 P^2_{\pm}(2\rho/c) } = \varphi'^2_{\pm}(\rho).
+P(t)=  
+\frac{c \exp (-   \mu c t)}{\sqrt{1/\varphi'^2_{+}(c t /2) +(c t /2)^2}} + \frac{\sigma}{2 \pi}  \frac{\exp(-\mu ct)}{t} \left( \varphi(\infty) -  \varphi(ct/2)  \right), \quad \varphi(\infty) = \dfrac{3\pi}{2}.
+\end{equation}
+
+Возвращаясь к обозначению $\rho=c t/2$\, ($ t =2 \rho/c $), из (15) получаем
+$$
+A = \dfrac{\sigma c \exp(-2\mu \rho)}{4\pi \rho} \left( \dfrac{3\pi}{2} - \varphi(\rho) \right),
+$$
+\begin{equation}
+\frac{(P(2 \rho / c) - A)^2}{c^2 \exp (- 4 \mu \rho) -  \rho^2 (P(2 \rho / c) - A)^2} = \varphi'^2(\rho).
 \end{equation}
 Так как $\rho(\pi) =l$, то $\varphi_{\pm}(l)=\pi$ и решение дифференциального уравнения (16) можно записать в виде
 \begin{equation}
 \label{final_phi}
-\varphi_ {\pm}(\rho) = \pi {\pm} \int \limits_l^{\rho} \frac{P_{\pm}(2\tau/c) d\tau }{\sqrt{c^2 	\exp (-  4 \mu \tau) -  \tau^2 P^2_{\pm}(2\tau/c)} }.
+\varphi(\rho) = \pi {\pm} \int \limits_l^{\rho} \frac{\Big(P(2 \rho / c) - A \Big)^2 ds}{\Big(c^2 \exp (- 4 \mu \rho) -  \rho^2 (P(2 \rho / c) - A)^2 \Big)^{1/2}}.
 \end{equation}
-Знаки $\pm$  в выражении  (17) выбраны в соответствии  с монотонным убыванием функции $\varphi_ {-}(\rho)$ на интервале $(\underline{\varphi},\pi)$ и монотонным возрастанием функции $\varphi_ {+}(\rho)$  на интервале $(\pi,\overline{\varphi})$.
+\textcolor{red}{Знаки $\pm$  в выражении  (17) выбраны в соответствии  с монотонным убыванием функции $\varphi_ {-}(\rho)$ на интервале $(\underline{\varphi},\pi)$ и монотонным возрастанием функции $\varphi_ {+}(\rho)$  на интервале $(\pi,\overline{\varphi})$}.
 
 
 \section{Численные примеры}
