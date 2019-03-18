@@ -86,7 +86,7 @@
 	
 	\makeface
 	
-	\abstract Рассматривается обратная задача для нестационарного уравнения переноса излучения, заключающаяся в определении	диффузно отражающей поверхности по заданным функционалам от плотности потока излучения. Для точечного импульсного источника в приближении однократного рассеяния при заданных коэффициентах объемного и донного рассеяний получено нелинейное дифференциальное уравнение для определения профиля поверхности. В вычислительных экспериментах на тестовых примерах рассматривается влияние объмного рассеяния при восстановлении ламбертовской кривой и поведение решения обратной задачи при возмущении исходных данных.
+	\abstract Рассматривается обратная задача для нестационарного уравнения переноса излучения, заключающаяся в определении	диффузно отражающей поверхности по заданным функционалам от плотности потока излучения. Для точечного импульсного источника в приближении однократного рассеяния при заданных коэффициентах объемного и донного рассеяний получено нелинейное дифференциальное уравнение для определения профиля поверхности. В вычислительных экспериментах на тестовых примерах рассматривается влияние объмного рассеяния и возмущении исходных данных на восстановлении ламбертовской кривой.
 	
 	\keywords{ уравнение переноса излучения, диффузное отражение, закон Ламберта, обратная задача, объемное рассеяние}
 
@@ -142,10 +142,10 @@ $$
 Дополним систему соотношений $(1), (2), (3)$ следующими условиями 
 \begin{equation}
 \label{add_eq}
-\int \limits_{\Omega_{-}} S_{+}(\k)  I^{+}(\o, \k, t) d\k = P_{+}(t), \quad 
-\int \limits_{\Omega_{+}} S_{-}(\k)  I^{+}(\o, \k, t) d\k = P_{-}(t),
+\int \limits_{\widetilde{\Omega}_{-}} S_{+}(\k)  I^{+}(\o, \k, t) d\k = P_{+}(t), \quad 
+\int \limits_{\widetilde{\Omega}_{+}} S_{-}(\k)  I^{+}(\o, \k, t) d\k = P_{-}(t),
 \end{equation}
-где $S_+(\k) = 0$ при $\k \in \{\k \in \Omega: k_1 >0 \}$ и $S_-(\k) = 0$ при $\k \in \{\k \in \Omega: k_1 < 0 \}$. Не умаляя общности считаем, что точка  $\o=(0,0)$ совпадает с началом декартовой системы координат.
+где $\Omega_{\pm} = \{\k \in \Omega: \k = \pm 1\}$,  $S_+(\k) = 0$ при $\k \in \widetilde{\Omega}_{+} = \{\k \in \Omega: k_1 >0, k_2 < 0\}$ и $S_-(\k) = 0$ при $\k \in \widetilde{\Omega}_{-} \{\k \in \Omega: k_1, k_2 < 0 \}$.   Не умаляя общности считаем, что точка  $\o=(0,0)$ совпадает с началом декартовой системы координат, а кривая $\gamma$ определена строго ниже оси абсцисс .
 
 В реальной трехмерной  задаче акустического зондирования дна океана с помощью гидролокатора бокового обзора функции $S_-(\k)$ и $S_+(\k)$ характеризует диаграммы направленности приемных антенн по разным  «бортам» носителя антенны \cite{7,8,9},
 а  функции $P_{\pm}(t)$ определяют  суммарную интенсивность, измеряемую двумя антеннами в различные моменты времени $t$.
@@ -163,7 +163,7 @@ J(\r,\k, t) = \delta (\r) \, \delta (t).
 \begin{equation}
 r_1=-\rho(\varphi)\sin \varphi, \quad r_2=\rho(\varphi)\cos \varphi.
 \end{equation}
-\textcolor{red}{Функция $\rho(\varphi)$ определена  непрерывна  на множестве $(\underline{\varphi},\overline{\varphi})$,  где $0 < \underline{\varphi} < \pi  < \overline{\varphi} <2\pi)$, дифференцируема  при $\varphi \in (\underline{\varphi},\pi)\cup (\pi,\overline{\varphi})$, монотонно убывает на интервале $(\underline{\varphi},\pi)$ и монотонно возрастает на промежутке $(\pi,\overline{\varphi})$. В точках $\varphi=\underline{\varphi}$ и $\varphi=\overline{\varphi}$ функция $\rho(\varphi)$ стремится к бесконечности. Таким образом, кривая $\gamma$ делит  плоскость $\mathbb R^2$ на две неограниченные области: $G$ и $\mathbb R^2\setminus \overline{G}$. }
+Функция $\rho(\varphi)$ определена  непрерывна  на множестве $(\underline{\varphi},\overline{\varphi})$,  где $\dfrac{\pi}{2} < \underline{\varphi} < \pi  < \overline{\varphi} < \dfrac{3\pi}{2}$, дифференцируема  при $\varphi \in (\underline{\varphi},\pi)\cup (\pi,\overline{\varphi})$, монотонно убывает на интервале $(\underline{\varphi},\pi)$ и монотонно возрастает на промежутке $(\pi,\overline{\varphi})$. В точках $\varphi=\underline{\varphi}$ и $\varphi=\overline{\varphi}$ функция $\rho(\varphi)$ стремится к бесконечности. Таким образом, кривая $\gamma$ делит  плоскость $\mathbb R^2$ на две неограниченные области: $G$ и $\mathbb R^2\setminus \overline{G}$.
 
 
 
@@ -173,13 +173,7 @@ r_1=-\rho(\varphi)\sin \varphi, \quad r_2=\rho(\varphi)\cos \varphi.
 
 
 
-
-
-
- 
 \section{Приближение однократного рассеяния}
-
-
 
 Решение начально-краевой задачи $(1),(2),(3)$ эквивалентно решению следующего уравнения интегрального типа [ ]:
 \begin{multline}
@@ -220,30 +214,29 @@ I(\r, \k, t) = \int \limits ^{d(\r, -\k)}_0  \exp (-\mu \tau)  J  \left(\r-\tau\
 Принимая во внимание ограничение  (5) для функции $J$ и <<звездность>> области $G$ относительно начала координат, перепишем соотношение (10) в точке $\r=\o$  
 \begin{multline}
 I^+(\o, \k, t) = 
-2 \exp \left(-\mu d(\o, -\k) \right) \int \limits_{G(\y)} |\n (\y) \cdot \frac{\y-\r'}{|\y-\r'|}| \exp (-\mu |\y-\r'|)  \times \\
+2 \sigma_d \exp \left(-\mu d(\o, -\k) \right) \int \limits_{G(\y)} |\n (\y) \cdot \frac{\y-\r'}{|\y-\r'|}| \exp (-\mu |\y-\r'|)  \times \\
 \times \delta \left( \r' \right) \delta \left (t - \frac{d(\o, -\k)}{c} - \frac{|\y-\r'|}{c} \right) \frac{d\r'}{|\y-\r'|}  + \\ 
 \frac{\sigma}{2 \pi}  \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \int \limits_{G} \frac{\exp(-\mu |\r-\x|)}{|\r-\x|} \delta \left( \x - \tau \k \right) \delta \left (t - \frac{\tau}{c} - \frac{|\r-\x|}{c} \right) d\x d\tau= \\ \vspace{0.5cm} =
-\frac{2}{|\y|} \exp \left(-\mu ( d(\o, -\k)+|\y| \right)  \left |\n (\y) \cdot \frac{\y}{|\y|}\right|   \delta \left (t - \frac{d(\o, -\k)}{c} - \frac{|\y|}{c} \right) + \\
+\frac{2 \sigma_d}{|\y|} \exp \left(-\mu ( d(\o, -\k)+|\y| \right)  \left |\n (\y) \cdot \frac{\y}{|\y|}\right|   \delta \left (t - \frac{d(\o, -\k)}{c} - \frac{|\y|}{c} \right) + \\
 \frac{\sigma}{2 \pi} \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \frac{\exp(-\mu |\r- \tau \k|)}{|\r-\tau \k|} \delta \left (t - \frac{\tau}{c} - \frac{|\r-\tau \k|}{c} \right) d\tau= \\ \vspace{0.5cm}  = 
-\frac{2}{d(\o, -\k)} \exp \left(-2 \mu  d(\o, -\k) \right)  \left |\n (-d(\o, -\k)\k) \cdot \k\right|   \delta \left (t - 2\frac{d(\o, -\k)}{c}  \right) + \\ +
+\frac{2 \sigma_d}{d(\o, -\k)} \exp \left(-2 \mu  d(\o, -\k) \right)  \left |\n (-d(\o, -\k)\k) \cdot \k\right|   \delta \left (t - 2\frac{d(\o, -\k)}{c}  \right) + \\ +
 \frac{\sigma}{2 \pi} \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \frac{\exp(-\mu |\tau \k|)}{|\tau \k|} \delta \left (t - \frac{\tau}{c} - \frac{|\tau \k|}{c} \right) d\tau.
 \end{multline}
 
-Подставим (11) в условие (4) для случая $S_{+}(\k)$
+Для удобства, далее мы будем рассматривать только случай при $S_{+}(\k)$, т.к. решение обратной задачи при условии $S_{-}(\k)$ имеет аналогичные выкладки. Подставим (11) в условие (4), получим выражение для функции $P_{+}(t)$ в точке на приемной антенне.
 \begin{multline}
-P_{+}(t)=  \int \limits_{\Omega_{-}} S_{+}(\k) I^+ (\o, \k, t ) d\k
- =  \int \limits_{\Omega_{-}} S_{\pm} (\k)
-  \frac{2}{d(\o, -\k)}\exp \left(-2\mu  d(\o, -\k) \right)\times \\ \times   \left |\n (- d(\o, -\k)\k) \cdot \k \right| \times \delta \left (t - 2\frac{d(\o, -\k)}{c} \right) d\k + \\ +
-  \frac{\sigma}{2 \pi} \int \limits_{\Omega_{-}} S_{-} (\k) \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \frac{\exp(-\mu |\tau \k|)}{|\tau \k|} \delta \left (t - \frac{\tau}{c} - \frac{|\tau \k|}{c} \right) d\tau d\k,
+P_{+}(t)=  \int \limits_{\widetilde{\Omega}_{-}} S_{+}(\k) I^+ (\o, \k, t ) d\k
+ =  \int \limits_{\Omega_{-}} S_{+} (\k)
+  \frac{2 \sigma_d}{d(\o, -\k)}\exp \left(-2\mu  d(\o, -\k) \right)\times \\ \times   \left |\n (- d(\o, -\k)\k) \cdot \k \right| \times \delta \left (t - 2\frac{d(\o, -\k)}{c} \right) d\k + \\ +
+  \frac{\sigma}{2 \pi} \int \limits_{\widetilde{\Omega}_{-}} S_{-} (\k) \int \limits_{0}^{d(\o, -\k)} \exp(-\mu \tau) \frac{\exp(-\mu |\tau \k|)}{|\tau \k|} \delta \left (t - \frac{\tau}{c} - \frac{|\tau \k|}{c} \right) d\tau d\k.
 \end{multline}
-где $\Omega_{\pm} = \{\k \in \Omega: \k = \pm 1\}$
 
 Пусть $P_{+} = P$, $S_{+} = S$, $\k=(k_1,k_2)=(-\sin\varphi, \cos\varphi)$, тогда учитывая  параметризацию  кривой $\gamma$ ($\rho(\varphi)= d(\o, -\k)$) из (12) находим
 \begin{multline}
 P(t)=  \int \limits_{\pi}^{\overline{\varphi}} S(\varphi)  I^+ (\o, \k(\varphi), t ) d \varphi
 =
 \int \limits_{\pi}^{\overline{\varphi}} S(\varphi) 
-\frac{2}{\rho(\varphi)}\exp \left(-2\mu \rho(\varphi) \right)\times \\ \times   \left |\n (\varphi) \cdot \k(\varphi) \right| \times 
+\frac{2 \sigma_d}{\rho(\varphi)}\exp \left(-2\mu \rho(\varphi) \right)\times \\ \times   \left |\n (\varphi) \cdot \k(\varphi) \right| \times 
 \delta \left (t - 2\frac{\rho(\varphi)}{c} \right) d\varphi + \\ + 
  \frac{\sigma}{2 \pi} \int \limits_{\pi}^{\overline{\varphi}} S(\varphi)  \int \limits_{0}^{ \rho(\varphi)}  \frac{\exp(-2 \mu \tau)}{\tau} \delta \left (t - \frac{2\tau}{c} \right) d\tau d\varphi.
 \end{multline}
@@ -254,7 +247,7 @@ $$
 из (13) получаем
 \begin{multline}
 P(t)=  
-2\int \limits_{\pi}^{\overline{\varphi}} S(\varphi)
+2 \sigma_d \int \limits_{\pi}^{\overline{\varphi}} S(\varphi)
 \exp \left(- 2 \mu \rho(\varphi) \right)  \frac{|\rho'(\varphi)|}{\sqrt{\rho'^2(\varphi)+\rho^2(\varphi)}}
 \delta \left (t - 2\frac{\rho(\varphi)}{c} \right) 
 d\varphi + \\ +
@@ -265,13 +258,13 @@ d\varphi + \\ +
 \begin{equation}
 \label{intensive}
 P(t)=  
-\frac{c   
+\frac{\sigma_d c   
 	\exp (-   \mu c t)}{\sqrt{1/\varphi'^2_{\pm}(c t /2) +(c t /2)^2}} + \frac{\sigma}{2 \pi}  \frac{\exp(-\mu ct)}{t} \int \limits_{l}^{\infty} \chi (ct/2)_{[0, \varphi^{-1}(\rho)]}  \varphi'(\rho) d\rho.
 \end{equation}
  следовательно
 \begin{equation}
 P(t)=  
-\frac{c \exp (-   \mu c t)}{\sqrt{1/\varphi'^2_{+}(c t /2) +(c t /2)^2}} + \frac{\sigma}{2 \pi}  \frac{\exp(-\mu ct)}{t} \left( \varphi(\infty) -  \varphi(ct/2)  \right), \quad \varphi(\infty) = \dfrac{3\pi}{2}.
+\frac{\sigma_d c \exp (-   \mu c t)}{\sqrt{1/\varphi'^2_{+}(c t /2) +(c t /2)^2}} + \frac{\sigma}{2 \pi}  \frac{\exp(-\mu ct)}{t} \left( \varphi(\infty) -  \varphi(ct/2)  \right), \quad \varphi(\infty) = \dfrac{3\pi}{2}.
 \end{equation}
 
 Возвращаясь к обозначению $\rho=c t/2$\, ($ t =2 \rho/c $), из (15) получаем
@@ -279,12 +272,12 @@ $$
 A(\varphi(\rho)) = \dfrac{\sigma c \exp(-2\mu \rho)}{4\pi \rho} \left( \dfrac{3\pi}{2} - \varphi(\rho) \right),
 $$
 \begin{equation}
-\frac{(P(2 \rho / c) - A(\varphi(\rho)))^2}{c^2 \exp (- 4 \mu \rho) -  \rho^2 (P(2 \rho / c) - A(\varphi(\rho)))^2} = \varphi'^2(\rho).
+\frac{(P(2 \rho / c) - A(\varphi(\rho)))^2}{\sigma_d^2 c^2 \exp (- 4 \mu \rho) -  \rho^2 (P(2 \rho / c) - A(\varphi(\rho)))^2} = \varphi'^2(\rho).
 \end{equation}
 Так как $\rho(\pi) =l$, то $\varphi_{\pm}(l)=\pi$ и решение дифференциального уравнения (16) можно записать в виде
 \begin{equation}
 \label{final_phi}
-\varphi(\rho) = \pi {\pm} \int \limits_l^{\rho} \frac{\Big(P(2 \rho / c) - A(\varphi(\rho)) \Big) ds}{\Big(c^2 \exp (- 4 \mu \rho) -  \rho^2 [P(2 \rho / c) - A(\varphi(\rho))]^2 \Big)^{1/2}}.
+\varphi(\rho) = \pi {\pm} \int \limits_l^{\rho} \frac{\Big(P(2 \rho / c) - A(\varphi(\rho)) \Big) ds}{\Big(\sigma_d^2 c^2 \exp (- 4 \mu \rho) -  \rho^2 [P(2 \rho / c) - A(\varphi(\rho))]^2 \Big)^{1/2}}.
 \end{equation}
 \textcolor{red}{Знаки $\pm$  в выражении  (17) выбраны в соответствии  с монотонным убыванием функции $\varphi_ {-}(\rho)$ на интервале $(\underline{\varphi},\pi)$ и монотонным возрастанием функции $\varphi_ {+}(\rho)$  на интервале $(\pi,\overline{\varphi})$}.
 
@@ -293,16 +286,16 @@ $$
 
 В этом пункте на ряде тестовых примеров мы проведем анализ  численного решения обратной задачи (1)---(4). Как было показано в разделе 4,  решение обратной задачи сводится к вычислению интегралов (17). В приложениях, например в задачах зондирования донной поверхности,   мы имеем дело с дискретным множеством измеренных значений функций $P_{\pm}(\rho/c),\, \rho=\rho_i,\, i=0,...,n$. Учитывая это  замечание, из соотношений (17)  получаем рекуррентные формулы для определения $\varphi^i _{\pm}$:
 \begin{multline}
-\varphi^{i+1}_{\pm}= \varphi^i _{\pm}  \pm \int \limits_{\rho_{i}}^{\rho_{i+1}} \frac{P_{\pm}(2\tau/c) d\tau}{\sqrt{c^2 	
+\varphi^{i+1}_{\pm}= \varphi^i _{\pm}  \pm \int \limits_{\rho_{i}}^{\rho_{i+1}} \frac{P_{\pm}(2\tau/c) d\tau}{\sqrt{\sigma_d^2 c^2 	
 		\exp (-  4 \mu \tau) - \tau^2 P^2_{\pm}(2\tau/c) }} 
 \approx  \\ \approx
-\varphi^i_{\pm}   \pm \frac{P_{\pm}(2\rho_i/c) (\rho_{i+1}-\rho_i) }{\sqrt{c^2 	\exp (-  4 \mu \rho_i) -  \rho_i^2  P^2_{\pm}(2\rho_i/c) }}, \qquad  i=0,...,n-1,
+\varphi^i_{\pm}   \pm \frac{P_{\pm}(2\rho_i/c) (\rho_{i+1}-\rho_i) }{\sqrt{\sigma_d^2 c^2 	\exp (-  4 \mu \rho_i) -  \rho_i^2  P^2_{\pm}(2\rho_i/c) }}, \qquad  i=0,...,n-1,
 \end{multline}
 где $\varphi^0_{\pm}=\pi$, $\rho_0=l$  и для аппроксимации интеграла по элементарному отрезку использована  формула прямоугольников. Также будем рассматривать аппроксимацию по формуле трапеций
 \begin{multline}
-\varphi^{i+1}_{\pm}= \varphi^i _{\pm}  \pm \left( \frac{P_{\pm}(2\rho_i/c) (\rho_{i+1}-\rho_i) }{\sqrt{c^2 	\exp (-  4 \mu \rho_i) -  \rho_i^2 P^2_{\pm}(2\rho_i/c) }} +\right . \\
+\varphi^{i+1}_{\pm}= \varphi^i _{\pm}  \pm \left( \frac{P_{\pm}(2\rho_i/c) (\rho_{i+1}-\rho_i) }{\sqrt{\sigma_d^2 c^2 	\exp (-  4 \mu \rho_i) -  \rho_i^2 P^2_{\pm}(2\rho_i/c) }} +\right . \\
 +\left. 
-\frac{P_{\pm}(2\rho_{i+1}/c) (\rho_{i+1}-\rho_i) }{\sqrt{c^2 	\exp (-  4 \mu \rho_{i+1}) -  \rho_{i+1}^2 P^2_{\pm}(2\rho_{i+1}/c) }}\right)/2,  \qquad  i=0,...,n-1.
+\frac{P_{\pm}(2\rho_{i+1}/c) (\rho_{i+1}-\rho_i) }{\sqrt{\sigma_d^2 c^2 	\exp (-  4 \mu \rho_{i+1}) -  \rho_{i+1}^2 P^2_{\pm}(2\rho_{i+1}/c) }}\right)/2,  \qquad  i=0,...,n-1.
 \end{multline}
  В вычислительных экспериментах предполагалось, что  расстояние между источником и донной поверхностью в  направлении $\k=(0,-1)$ равно 30 метрам, то есть $\rho_0=l  = 30$.  Скорость распространения звука предполагается постоянной во всей области зондирования $c = 1500$м/сек,  коэффициент затухания и донного рассеяния имели значения  $\mu = 0.018$м$^{-1}$, $\sigma_d = 1$. Облучение поверхности осуществлялось  c дальностью зондирования $\rho_n=300$м  с шагом дискретизации $\Delta\rho=\rho_{i+1}-\rho_i$, который варьировался на промежутке $[0.004, 0.4]$м.
 
