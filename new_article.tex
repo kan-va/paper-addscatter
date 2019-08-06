@@ -277,7 +277,7 @@ $$
 “ак как $\rho(\pi) =l$, то $\varphi_{\pm}(l)=\pi$ и решение дифференциального уравнени€ (16) можно записать в виде
 \begin{equation}
 \label{final_phi}
-\varphi(\rho) = \pi {\pm} \int \limits_l^{\rho} \frac{\Big(P(2 \rho / c) - A(\varphi(\rho)) \Big) ds}{\Big(\sigma_d^2 c^2 \exp (- 4 \mu \rho) -  \rho^2 [P(2 \rho / c) - A(\varphi(\rho))]^2 \Big)^{1/2}}.
+\varphi(\rho) = \pi {\pm} \int \limits_l^{\rho} \frac{\Big(P(2 s / c) - A(\varphi(s)) \Big) ds}{\Big(\sigma_d^2 c^2 \exp (- 4 \mu s) -  \rho^2 [P(2 s / c) - A(\varphi(s))]^2 \Big)^{1/2}}.
 \end{equation}
 \textcolor{red}{«наки $\pm$  в выражении  (17) выбраны в соответствии  с монотонным убыванием функции $\varphi_ {-}(\rho)$ на интервале $(\underline{\varphi},\pi)$ и монотонным возрастанием функции $\varphi_ {+}(\rho)$  на интервале $(\pi,\overline{\varphi})$}.
 
@@ -286,10 +286,9 @@ $$
 
 ¬ этом пункте на р€де тестовых примеров мы проведем анализ  численного решени€ обратной задачи (1)---(4).  ак было показано в разделе 4,  решение обратной задачи сводитс€ к вычислению интегралов (17). ¬ приложени€х, например в задачах зондировани€ донной поверхности,   мы имеем дело с дискретным множеством измеренных значений функций $P_{\pm}(\rho/c),\, \rho=\rho_i,\, i=0,...,n$. ”читыва€ это  замечание, из соотношений (17)  получаем рекуррентные формулы дл€ определени€ $\varphi^i _{\pm}$:
 \begin{multline}
-\varphi^{i+1}_{\pm}= \varphi^i _{\pm}  \pm \int \limits_{\rho_{i}}^{\rho_{i+1}} \frac{P_{\pm}(2\tau/c) d\tau}{\sqrt{\sigma_d^2 c^2 	
-		\exp (-  4 \mu \tau) - \tau^2 P^2_{\pm}(2\tau/c) }} 
+\varphi^{i+1}_{\pm}= \varphi^i _{\pm}  \pm \int \limits_{\rho_{i}}^{\rho_{i+1}}  \frac{\Big(P(2 \rho / c) - A(\varphi(\rho)) \Big) d\rho}{\Big(\sigma_d^2 c^2 \exp (- 4 \mu \rho) -  \rho^2 [P(2 \rho / c) - A(\varphi(\rho))]^2 \Big)^{1/2}}
 \approx  \\ \approx
-\varphi^i_{\pm}   \pm \frac{P_{\pm}(2\rho_i/c) (\rho_{i+1}-\rho_i) }{\sqrt{\sigma_d^2 c^2 	\exp (-  4 \mu \rho_i) -  \rho_i^2  P^2_{\pm}(2\rho_i/c) }}, \qquad  i=0,...,n-1,
+\varphi^i_{\pm}   \pm \ \frac{P(2 \rho_i / c) - A(\varphi(\rho_i))}{\Big(\sigma_d^2 c^2 \exp (- 4 \mu \rho_i) -  \rho_i^2 [P(2 \rho_i / c) - A(\varphi(\rho_i))]^2 \Big)^{1/2}}, \qquad  i=0,...,n-1,
 \end{multline}
 где $\varphi^0_{\pm}=\pi$, $\rho_0=l$  и дл€ аппроксимации интеграла по элементарному отрезку использована  формула пр€моугольников. “акже будем рассматривать аппроксимацию по формуле трапеций
 \begin{multline}
